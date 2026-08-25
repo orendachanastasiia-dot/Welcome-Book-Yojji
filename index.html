@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Welcome to Yojji — Welcome Book</title>
+<meta name="description" content="Your guide to your first days at Yojji: who we are, how we work, your onboarding steps, time off, life at the company and who to ask for help." />
+<link rel="canonical" href="https://welcome.yojji.io/" />
+<meta name="theme-color" content="#0057FF" />
+<!-- <meta name="robots" content="noindex, nofollow" />  ← розкоментувати, якщо сторінка тільки для своїх -->
+
+<!-- ===== Open Graph (Facebook, LinkedIn, Telegram, Slack) ===== -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Yojji" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:title" content="Welcome to Yojji — Welcome Book" />
+<meta property="og:description" content="Your guide to your first days at Yojji: who we are, how we work, your onboarding steps, time off and who to ask for help." />
+<meta property="og:url" content="https://welcome.yojji.io/" />
+<meta property="og:image" content="https://welcome.yojji.io/og-preview.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Welcome to Yojji — the company welcome book" />
+
+<!-- ===== Twitter / X ===== -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Welcome to Yojji — Welcome Book" />
+<meta name="twitter:description" content="Your guide to your first days at Yojji: who we are, how we work, your onboarding steps, time off and who to ask for help." />
+<meta name="twitter:image" content="https://welcome.yojji.io/og-preview.jpg" />
+
+<!-- ===== Icons ===== (файли лежать у корені сайту) -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- GA4: вставити тег тут -->
+<!-- Meta Pixel: вставити тут -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   TOKENS
+   ===================================================================== */
+:root{
+  --paper:   #FAFAFC;          /* all sections after the hero */
+  --paper-2: #F0F0F4;          /* placeholder fill */
+  --ink:     #141517;          /* logo black */
+  --ink-70:  #4A4A4E;
+  --ink-45:  #8A8A8F;
+  --line:    rgba(20,21,23,.18);
+  --line-2:  rgba(20,21,23,.09);
+  --blue:    #0057FF;          /* Yojji blue (from the logo) */
+  --lift:    0 18px 44px rgba(20,21,23,.22);
+  --noise:   url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.58' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='300' height='300' filter='url(%23n)' opacity='.88'/></svg>");
+
+  --bar-h: 58px;
+  --pad-x: clamp(20px, 5vw, 92px);
+  --maxw: 1320px;
+
+  --sans:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16.5px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+body.menu-open{overflow:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+::selection{background:var(--blue);color:#fff;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+.mono{font-family:var(--mono);font-size:10.5px;line-height:1.4;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-45);font-weight:400;}
+h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.025em;}
+h2{font-size:clamp(30px,4.3vw,58px);line-height:1.06;}
+h3{font-size:clamp(20px,2.2vw,29px);line-height:1.18;letter-spacing:-.02em;}
+h4{font-size:17px;line-height:1.25;letter-spacing:-.02em;}
+p{margin:0 0 16px;max-width:62ch;}
+.muted{color:var(--ink-70);}
+.small{font-size:14.5px;line-height:1.55;color:var(--ink-70);}
+
+/* ---------- logo ---------- */
+.mark{display:block;height:22px;width:auto;color:var(--ink);}
+.mark--lg{height:clamp(46px,9.4vw,132px);}
+.mark--foot{height:clamp(34px,5vw,64px);color:var(--ink);}
+.mark--onblue{--blue:#fff;color:#fff;}
+
+/* ---------- top bar ---------- */
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--blue);z-index:99;}
+.bar{
+  position:fixed;top:0;left:0;right:0;height:var(--bar-h);z-index:80;
+  background:rgba(250,250,252,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:0 var(--pad-x);
+  transform:translateY(-101%);transition:transform .32s cubic-bezier(.2,.8,.3,1);
+}
+body.past-hero .bar{transform:none;}
+.bar a.bar-logo{display:block;text-decoration:none;}
+.bar-now{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-btn{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:0;
+  background:#2F3036;color:#fff;padding:11px 24px;border-radius:999px;
+  font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:-.01em;
+  transition:background .18s,transform .18s;
+}
+.bar-btn:hover{background:var(--blue);transform:translateY(-1px);}
+.bar-btn .bx{width:7px;height:7px;border-radius:2px;background:#fff;display:block;opacity:.85;}
+@media (max-width:720px){.bar-now{display:none;}}
+
+/* ---------- contents overlay ---------- */
+.menu{
+  position:fixed;inset:0;z-index:90;background:var(--paper);
+  padding:0 var(--pad-x);overflow-y:auto;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .22s ease,transform .22s ease,visibility .22s;
+}
+body.menu-open .menu{opacity:1;visibility:visible;transform:none;}
+.menu-head{height:var(--bar-h);display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--line);}
+.menu-close{background:#2F3036;border:0;cursor:pointer;color:#fff;border-radius:999px;
+  font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:-.01em;padding:11px 24px;
+  transition:background .18s,transform .18s;}
+.menu-close:hover{background:var(--blue);transform:translateY(-1px);}
+.menu-list{max-width:var(--maxw);margin:clamp(24px,5vh,64px) auto;}
+.menu-list a{
+  display:grid;grid-template-columns:64px 1fr auto;align-items:baseline;gap:14px;
+  padding:clamp(10px,1.6vh,18px) 0;border-bottom:1px solid var(--line-2);text-decoration:none;
+  transition:padding-left .18s,color .18s;
+}
+.menu-list a:first-child{border-top:1px solid var(--ink);}
+.menu-list a .t{font-size:clamp(20px,3.2vw,40px);letter-spacing:-.025em;font-weight:600;line-height:1.1;}
+.menu-list a:hover{padding-left:10px;color:var(--blue);}
+
+/* ---------- layout ---------- */
+section{padding:0 var(--pad-x) clamp(64px,8vw,124px);border-bottom:1px solid var(--line);
+  scroll-margin-top:var(--bar-h);}
+.wrap{max-width:var(--maxw);margin:0 auto;}
+.rail{display:flex;justify-content:space-between;gap:16px;align-items:center;
+  padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:clamp(44px,6vw,86px);}
+.rail .mid{display:flex;gap:26px;}
+@media (max-width:760px){.rail .mid span:nth-child(2){display:none;}}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4.5vw,72px);align-items:start;}
+.mt{margin-top:clamp(30px,4vw,56px);}
+.mt-s{margin-top:20px;}
+.mt-l{margin-top:clamp(48px,6vw,92px);}
+
+/* ---------- hero (the only blue surface) ---------- */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;padding:0 var(--pad-x);
+  color:#fff;border-bottom:0;position:relative;isolation:isolate;
+  background:linear-gradient(135deg, #0057FF 21%, #0448CC 100%);
+  --line:rgba(255,255,255,.34);--line-2:rgba(255,255,255,.20);--ink-45:rgba(255,255,255,.7);
+  --ink-70:rgba(255,255,255,.82);--ink:#fff;--paper-2:rgba(255,255,255,.08);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.72;
+  background-image:var(--noise);
+  mix-blend-mode:overlay;
+}
+.hero .mark{--blue:#fff;color:#fff;}
+.hero-wrap{flex:1;display:flex;flex-direction:column;
+  padding:clamp(22px,3.4vh,38px) 0 clamp(20px,3vh,32px);width:100%;max-width:var(--maxw);margin:0 auto;}
+.hero-top{display:flex;align-items:center;justify-content:space-between;}
+.mark--hero{height:clamp(22px,2.2vw,30px);}
+.hero-year{font-weight:600;font-size:clamp(15px,1.3vw,19px);letter-spacing:-.01em;}
+.hero-mid{flex:1;display:grid;grid-template-columns:1fr auto;gap:clamp(24px,5vw,80px);
+  align-items:center;padding:clamp(28px,5vh,64px) 0;}
+.hero-type{font-size:clamp(38px,9vw,132px);line-height:1.0;letter-spacing:-.025em;
+  font-weight:700;margin:0;text-transform:uppercase;color:#fff;}
+.hero-type .mark--inline{display:inline-block;height:.76em;width:auto;vertical-align:baseline;
+  margin-left:.04em;--blue:#fff;color:#fff;}
+.hero-desc{margin:clamp(20px,2.6vw,34px) 0 0;max-width:58ch;font-size:clamp(15px,1.15vw,17.5px);
+  line-height:1.55;color:rgba(255,255,255,.9);}
+.ready{display:flex;flex-direction:column;align-items:flex-start;gap:14px;
+  text-decoration:none;color:#fff;align-self:center;}
+.ready-t{font-style:italic;font-weight:500;font-size:clamp(17px,1.7vw,24px);line-height:1.2;letter-spacing:-.01em;}
+.ready-arrow{width:clamp(34px,3.4vw,52px);height:auto;color:#fff;margin-left:6px;
+  animation:nudge 2.4s ease-in-out infinite;}
+.ready:hover .ready-arrow{animation-play-state:paused;transform:translateY(6px);transition:transform .2s;}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.ready-arrow{animation:none}}
+.hero-foot{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;
+  border-top:1px solid rgba(255,255,255,.4);padding-top:16px;
+  font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.9);}
+.hero-foot .right{text-align:right;}
+.hero-foot a{text-decoration:none;}
+.hero-foot a:hover{text-decoration:underline;}
+.meta-rows{margin-top:26px;border-top:1px solid var(--line);}
+.meta-rows div{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid var(--line-2);}
+.index{margin-top:clamp(40px,5vw,72px);border-top:1px solid var(--ink);
+  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);
+  grid-auto-flow:column;column-gap:clamp(28px,4vw,72px);}
+.index a{display:grid;grid-template-columns:52px 1fr auto;align-items:baseline;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--line-2);text-decoration:none;
+  transition:padding-left .18s,color .18s;}
+.index a:hover{padding-left:8px;color:var(--blue);}
+.index a .t{font-size:clamp(16px,1.45vw,20px);letter-spacing:-.025em;}
+
+/* ---------- placeholders ---------- */
+.ph{position:relative;background:
+    repeating-linear-gradient(45deg,rgba(20,21,23,.045) 0 1px,transparent 1px 9px),var(--paper-2);
+  border:1px solid var(--line);display:grid;place-items:center;text-align:center;padding:18px;}
+.ph .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-45);}
+.ph .tag{position:absolute;top:8px;left:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--ink-45);}
+.ph .cnr{position:absolute;bottom:8px;right:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--blue);}
+.r-21-9{aspect-ratio:21/9;}.r-16-9{aspect-ratio:16/9;}.r-4-3{aspect-ratio:4/3;}
+.r-1-1{aspect-ratio:1/1;}.r-3-4{aspect-ratio:3/4;}.r-4-5{aspect-ratio:4/5;}
+.on-dark .ph{background:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0 1px,transparent 1px 9px),rgba(255,255,255,.04);
+  border-color:rgba(255,255,255,.22);}
+.on-dark .ph .lbl,.on-dark .ph .tag{color:rgba(255,255,255,.5);}
+
+/* ---------- rows ---------- */
+.rows{border-top:1px solid var(--ink);}
+.row{display:grid;grid-template-columns:64px minmax(150px,1.05fr) 2fr;gap:clamp(14px,2.5vw,44px);
+  padding:22px 0;border-bottom:1px solid var(--line);align-items:start;transition:background .18s;}
+.row:hover{background:rgba(0,87,255,.05);}
+.row .num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--blue);padding-top:4px;}
+.row h3{font-size:clamp(18px,1.85vw,25px);letter-spacing:-.02em;}
+.row p{margin:0;font-size:15.5px;color:var(--ink-70);}
+
+/* ---------- stages ---------- */
+.stages{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);}
+.stage{padding:26px 30px 32px;border-bottom:1px solid var(--line);}
+.stage+.stage{border-left:1px solid var(--line);}
+.stage .cap{display:flex;justify-content:space-between;margin-bottom:22px;}
+.stage h3{font-size:23px;letter-spacing:-.03em;margin-bottom:16px;}
+.stage ol{list-style:none;margin:0;padding:0;counter-reset:s;}
+.stage li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:8px;padding:9px 0;
+  border-top:1px solid var(--line-2);font-size:15px;color:var(--ink-70);line-height:1.45;}
+.stage li::before{content:"[" counter(s,decimal-leading-zero) "]";font-family:var(--mono);
+  font-size:10px;letter-spacing:.08em;color:var(--ink-45);padding-top:4px;}
+
+.note{border:1px solid var(--blue);background:var(--blue);color:#fff;padding:26px 30px;
+  display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,.72);white-space:nowrap;padding-top:5px;}
+.note p{margin:0;color:rgba(255,255,255,.92);max-width:78ch;font-size:16px;}
+.note b{color:#fff;font-weight:600;}
+
+/* ---------- accent word ---------- */
+.blue-txt{color:var(--blue);}
+
+/* ---------- dark section ---------- */
+.sec-dark{
+  background:#141517;color:#FAFAFC;border-bottom-color:rgba(250,250,252,.16);
+  --ink:#FAFAFC;--ink-70:rgba(250,250,252,.72);--ink-45:rgba(250,250,252,.55);
+  --line:rgba(250,250,252,.26);--line-2:rgba(250,250,252,.14);--paper-2:rgba(255,255,255,.05);
+}
+.sec-dark .ph{background:
+  repeating-linear-gradient(45deg,rgba(255,255,255,.07) 0 1px,transparent 1px 9px),rgba(255,255,255,.045);}
+.sec-dark .row:hover{background:rgba(255,255,255,.05);}
+.sec-dark .row .num{color:#5B8CFF;}
+
+/* ---------- leader cards (names & roles are baked into the images) ---------- */
+.leaders{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px);}
+.leader{margin:0;position:relative;}
+.leader-frame{position:relative;isolation:isolate;aspect-ratio:3/4;overflow:hidden;
+  border:1px solid var(--line);background:rgba(255,255,255,.04);transition:transform .3s ease,box-shadow .3s ease;}
+.leader-frame .tag{position:absolute;top:8px;left:10px;z-index:3;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.14em;color:rgba(255,255,255,.55);}
+.leader img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;
+  filter:none;transition:transform .3s ease;}          /* leaders stay in colour */
+.leader:hover .leader-frame{transform:scale(1.04);box-shadow:var(--lift);z-index:2;}
+.leader:hover img{transform:scale(1.08);}
+.leader-cap{display:block;margin-top:11px;padding-top:10px;border-top:1px solid var(--line);}
+.leader-cap b{display:block;font-size:17px;font-weight:600;letter-spacing:-.02em;}
+.leader-cap .mono{display:block;margin-top:5px;}
+@media (max-width:900px){.leaders{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:520px){.leaders{grid-template-columns:1fr;}}
+
+/* ---------- film grain on photos ---------- */
+.shot-frame::after,.photo-frame::after,.leader-frame::after,.case-media::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:var(--noise);mix-blend-mode:overlay;opacity:.5;
+}
+
+/* ---------- activity shots ---------- */
+.shot{margin:0;position:relative;}
+.shot-frame{position:relative;isolation:isolate;aspect-ratio:1/1;overflow:hidden;
+  border:1px solid var(--line);background:var(--paper-2);transition:transform .3s ease,box-shadow .3s ease;}
+.shot-frame .tag{position:absolute;top:8px;left:10px;z-index:3;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.14em;color:var(--ink-45);}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:none;transition:transform .3s ease;}
+.shot:hover .shot-frame{transform:scale(1.04);box-shadow:var(--lift);z-index:2;}
+.shot:hover img{transform:scale(1.08);}
+
+/* ---------- real photos ---------- */
+.photo{margin:0;position:relative;}
+.photo.mt-l{margin-top:clamp(64px,9vw,132px);}   /* breathing room above a full-width photo */
+.photo-frame{position:relative;isolation:isolate;overflow:hidden;border:1px solid var(--line-2);background:var(--paper-2);
+  aspect-ratio:2/1;transition:transform .3s ease,box-shadow .3s ease;}
+.photo-frame--45{aspect-ratio:4/5;}
+.photo-frame img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:none;transition:transform .3s ease;}
+.photo:hover .photo-frame{transform:scale(1.04);box-shadow:var(--lift);z-index:2;}
+.photo:hover .photo-frame img{transform:scale(1.08);}
+@media (max-width:700px){.photo-frame{aspect-ratio:4/3;}}
+
+/* ---------- figures ---------- */
+.figs{display:grid;gap:16px;}
+.f-2{grid-template-columns:repeat(2,1fr);}
+.f-3{grid-template-columns:repeat(3,1fr);}
+.f-4{grid-template-columns:repeat(4,1fr);}
+figure{margin:0;}
+figcaption{display:flex;justify-content:space-between;gap:10px;margin-top:9px;padding-top:7px;
+  border-top:1px solid var(--line);}
+
+/* ---------- numbers ---------- */
+.nums{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink);}
+.nums>div{padding:26px 0 20px;}
+.nums>div+div{border-left:1px solid var(--line);padding-left:32px;}
+.nums .n{font-size:clamp(58px,9.6vw,140px);line-height:.9;letter-spacing:-.04em;font-weight:600;color:var(--blue);}
+.nums .n sup{font-size:.16em;vertical-align:super;letter-spacing:.1em;color:var(--blue);
+  font-family:var(--mono);font-weight:400;}
+.nums .l{margin-top:16px;max-width:24ch;color:var(--ink-70);font-size:15px;}
+
+/* ---------- hours ---------- */
+.hours{border-top:1px solid var(--ink);}
+.hours .r{display:grid;grid-template-columns:220px 1fr auto;gap:20px;align-items:baseline;
+  padding:18px 0;border-bottom:1px solid var(--line);}
+.hours .t{font-size:clamp(26px,3.9vw,52px);line-height:1.05;letter-spacing:-.03em;font-weight:600;color:var(--blue);}
+
+/* ---------- work ---------- */
+.wordmark{font-size:clamp(46px,11.6vw,172px);line-height:.9;letter-spacing:-.04em;font-weight:600;}
+.wordmark .yr{display:block;font-family:var(--mono);font-size:clamp(12px,1.4vw,18px);
+  letter-spacing:.2em;color:var(--blue);margin-top:18px;}
+
+/* ---------- carousel ---------- */
+.carousel{--gap:18px;}
+.car-head{display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--ink);padding-top:14px;margin-bottom:20px;}
+.car-stage{position:relative;}
+.car-track{
+  display:grid;grid-auto-flow:column;gap:var(--gap);
+  grid-auto-columns:calc((100% - var(--gap)*3)/4);
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;padding:2px;
+}
+.car-track::-webkit-scrollbar{display:none;}
+.car-track:focus-visible{outline:2px solid var(--blue);outline-offset:4px;}
+
+.case{scroll-snap-align:start;display:flex;flex-direction:column;position:relative;
+  background:var(--paper-2);border:1px solid var(--line-2);overflow:hidden;
+  min-height:clamp(340px,31vw,430px);transition:border-color .2s ease;}
+.case:hover{border-color:var(--line);}
+.case-media{position:relative;isolation:isolate;aspect-ratio:16/10;overflow:hidden;
+  border-bottom:1px solid var(--line-2);background:rgba(255,255,255,.05);}
+.case-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.case-media .tag{position:absolute;top:8px;left:10px;z-index:3;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.14em;color:rgba(255,255,255,.7);
+  text-shadow:0 1px 6px rgba(0,0,0,.5);}
+.case-body{flex:1;display:flex;flex-direction:column;padding:20px 20px 18px;}
+.case-title{font-size:clamp(17px,1.4vw,20px);letter-spacing:-.02em;margin-bottom:8px;}
+.case-sub{font-size:14px;line-height:1.45;color:var(--ink-70);margin:0;max-width:34ch;}
+.case-foot{margin-top:auto;padding-top:22px;display:flex;justify-content:space-between;
+  align-items:flex-end;gap:12px;border-top:1px solid var(--line-2);}
+.case-by{line-height:1.5;}
+.car-cta{display:inline-flex;align-items:center;gap:9px;text-decoration:none;
+  background:#2F3036;color:#fff;padding:11px 24px;border-radius:999px;
+  font-size:14px;font-weight:600;letter-spacing:-.01em;
+  transition:background .18s,transform .18s;}
+.car-cta::after{content:"→";font-size:15px;line-height:1;}
+.car-cta:hover{background:var(--blue);transform:translateY(-1px);}
+.sec-dark .car-cta{background:#FAFAFC;color:#141517;}
+.sec-dark .car-cta:hover{background:var(--blue);color:#fff;}
+
+.car-btn{position:absolute;top:32%;z-index:3;width:46px;height:46px;border-radius:999px;
+  display:grid;place-items:center;cursor:pointer;border:1px solid rgba(20,21,23,.10);
+  background:#fff;color:#141517;font-size:22px;line-height:0;padding-bottom:3px;
+  box-shadow:0 6px 20px rgba(0,0,0,.16);transition:background .16s,color .16s,opacity .2s,transform .16s;}
+.car-btn:hover{background:var(--blue);color:#fff;transform:scale(1.06);}
+.car-prev{left:-16px;} .car-next{right:-16px;}
+.car-btn:disabled{opacity:0;pointer-events:none;}
+.car-bar{height:1px;background:var(--line-2);margin-top:20px;position:relative;overflow:hidden;}
+.car-bar span{position:absolute;left:0;top:0;height:100%;width:33%;background:var(--blue);
+  transition:left .2s ease,width .2s ease;}
+.sec-dark .case{background:#1B1D21;}
+.sec-dark{--lift:0 20px 48px rgba(0,0,0,.55);}
+.sec-dark .case-media{background:
+  repeating-linear-gradient(45deg,rgba(255,255,255,.07) 0 1px,transparent 1px 9px),rgba(255,255,255,.05);}
+@media (max-width:900px){
+  .car-track{grid-auto-columns:calc((100% - var(--gap))/2.1);}
+  .car-btn{display:none;}
+}
+@media (max-width:620px){.car-track{grid-auto-columns:84%;}}
+
+
+/* ---------- mobile fixes ---------- */
+.howto{border-top:1px solid var(--ink);padding-top:22px;
+  display:grid;grid-template-columns:220px 1fr;gap:24px;}
+.car-cta--mobile{display:none;}
+@media (max-width:760px){
+  .note{grid-template-columns:1fr;gap:14px;padding:22px;}
+  .note p{max-width:none;}
+  .howto{grid-template-columns:1fr;gap:10px;}
+  .car-head{flex-direction:column;align-items:flex-start;gap:10px;}
+  .car-head .car-cta{display:none;}
+  .car-cta--mobile{display:flex;width:100%;justify-content:space-between;
+    margin-top:22px;padding:16px 24px;font-size:15px;}
+}
+
+/* ---------- footer ---------- */
+footer{background:var(--paper);color:var(--ink);padding:0 var(--pad-x) 34px;
+  border-top:1px solid var(--line);scroll-margin-top:var(--bar-h);}
+footer h2{max-width:none;}
+@media (max-width:560px){footer h2{font-size:23px;}}
+.contacts{border-top:1px solid var(--ink);margin-top:clamp(36px,5vw,64px);}
+.contacts .c{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;
+  border-bottom:1px solid var(--line);align-items:baseline;}
+.contacts .v{font-size:clamp(20px,2.4vw,34px);letter-spacing:-.03em;text-decoration:none;}
+.contacts a.v{color:var(--blue);}
+.contacts a.v:hover{border-bottom:2px solid var(--blue);}
+.f-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:flex-end;
+  margin-top:clamp(40px,5vw,72px);padding-top:18px;border-top:1px solid var(--line);}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease;}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1040px){.f-4{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:900px){
+  .split{grid-template-columns:1fr;}
+  .hero-mid{grid-template-columns:1fr;align-items:start;gap:28px;}
+  .ready{flex-direction:row;align-items:center;gap:16px;align-self:flex-start;}
+  .ready-arrow{width:30px;margin-left:0;}
+  .index{grid-template-columns:1fr;grid-auto-flow:row;grid-template-rows:none;}
+  .stages{grid-template-columns:1fr;}
+  .stage+.stage{border-left:0;}
+  .row{grid-template-columns:52px 1fr;}
+  .row p{grid-column:2;}
+  .f-3,.f-2{grid-template-columns:repeat(2,1fr);}
+  .hours .r{grid-template-columns:1fr;gap:6px;}
+  .contacts .c{grid-template-columns:1fr;gap:4px;}
+}
+@media (max-width:560px){
+  .nums{grid-template-columns:1fr;}
+  .nums>div+div{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.4);}
+  .f-4,.f-3,.f-2{grid-template-columns:1fr;}
+  .index a,.menu-list a{grid-template-columns:40px 1fr;}
+  .index a span:last-child,.menu-list a span:last-child{display:none;}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="yojji" viewBox="0 0 2368 536">
+<g transform="translate(0,536) scale(0.1,-0.1)" fill="currentColor" stroke="none">
+<path d="M52 5329 c-13 -16 -30 -29 -38 -29 -20 0 -20 -106 1 -113 8 -4 21 -21 30 -39 20 -45 88 -165 98 -175 5 -4 15 -21 23 -38 8 -16 23 -43 34 -60 11 -16 27 -46 36 -65 9 -19 22 -42 29 -50 7 -8 26 -38 41 -66 16 -29 67 -118 114 -199 47 -81 101 -175 120 -210 19 -35 39 -67 43 -72 5 -4 15 -21 23 -38 8 -16 25 -48 39 -70 13 -22 29 -51 35 -65 6 -14 17 -32 25 -40 7 -8 26 -38 41 -66 28 -50 185 -323 204 -354 5 -8 24 -41 42 -73 18 -33 43 -75 55 -95 12 -21 29 -50 37 -67 9 -16 27 -48 41 -70 13 -22 29 -49 35 -60 22 -39 66 -115 145 -250 44 -75 93 -160 108 -188 16 -29 36 -63 45 -77 9 -14 29 -50 45 -80 16 -30 35 -62 41 -70 7 -8 18 -26 24 -40 7 -14 21 -38 32 -55 11 -16 27 -46 36 -65 9 -19 22 -42 29 -50 7 -8 24 -35 37 -60 13 -25 46 -82 74 -128 27 -46 62 -107 77 -135 16 -29 36 -63 45 -77 9 -14 29 -50 45 -80 16 -30 35 -62 41 -70 7 -8 17 -26 24 -40 14 -29 29 -54 55 -89 16 -22 17 -76 17 -795 0 -871 -7 -798 83 -841 l51 -25 422 0 c422 0 423 0 457 23 19 12 43 27 53 33 18 11 19 42 19 930 l0 919 -55 93 c-30 52 -71 122 -90 157 -19 35 -39 67 -43 72 -5 4 -15 22 -23 38 -8 17 -25 48 -39 70 -13 22 -29 51 -35 65 -6 14 -17 32 -25 40 -7 8 -26 38 -41 66 -16 28 -49 86 -74 129 -25 43 -58 101 -73 129 -16 28 -36 62 -45 76 -9 14 -29 50 -45 80 -16 30 -35 62 -41 70 -7 8 -18 26 -24 40 -7 14 -21 39 -32 55 -11 17 -30 49 -42 72 -13 23 -59 104 -103 179 -44 74 -96 164 -115 199 -19 35 -39 67 -43 72 -5 4 -15 22 -23 38 -8 17 -25 48 -39 70 -13 22 -29 51 -35 65 -6 14 -17 32 -25 40 -7 8 -26 38 -41 66 -16 28 -49 86 -74 129 -25 43 -58 101 -73 129 -16 28 -36 62 -45 76 -9 14 -29 50 -45 80 -16 30 -35 62 -41 70 -7 8 -18 26 -24 40 -7 14 -21 39 -32 55 -11 17 -27 46 -36 65 -9 19 -22 42 -29 50 -7 8 -24 35 -37 60 -20 37 -73 128 -128 220 -5 8 -24 41 -42 73 -18 33 -43 75 -55 95 -12 21 -29 51 -37 67 -15 29 -25 45 -90 152 -16 26 -44 63 -62 81 l-33 32 -528 -1 -528 0 -23 -30z"/>
+<path d="M4101 5326 c-25 -17 -53 -45 -62 -61 -10 -17 -37 -63 -61 -104 -24 -40 -52 -88 -63 -106 -54 -90 -103 -172 -129 -219 -15 -28 -37 -62 -47 -75 -11 -13 -19 -27 -19 -32 0 -4 -18 -37 -40 -71 -22 -35 -40 -68 -40 -74 0 -6 -9 -19 -20 -29 -11 -10 -20 -23 -20 -29 0 -6 -18 -38 -40 -71 -22 -33 -40 -65 -40 -71 0 -6 -9 -19 -20 -29 -11 -10 -20 -22 -20 -27 0 -8 -38 -75 -87 -156 -37 -61 -97 -162 -113 -190 -27 -50 -18 -99 33 -183 12 -20 41 -70 65 -110 23 -41 47 -81 52 -89 5 -8 24 -41 42 -73 18 -33 43 -75 55 -95 12 -21 29 -50 37 -67 9 -16 26 -47 39 -67 12 -20 56 -94 97 -165 41 -70 85 -138 99 -150 30 -28 96 -31 126 -5 18 15 60 79 105 160 8 15 25 43 37 62 12 19 35 58 50 86 15 28 64 112 108 188 44 75 88 151 98 169 10 18 26 46 37 62 11 17 27 45 36 64 8 19 31 57 50 85 19 28 34 54 34 58 0 4 16 32 35 63 20 30 38 63 42 73 3 9 12 24 19 32 7 9 27 43 45 75 17 33 38 67 45 76 8 8 14 20 14 25 0 5 18 36 40 69 22 33 40 65 40 71 0 6 8 22 19 35 10 13 34 51 52 85 19 33 70 122 114 198 44 75 88 151 98 169 10 18 26 46 37 62 11 17 27 46 36 65 9 19 26 49 38 65 11 17 35 59 53 94 28 58 30 68 19 95 -7 16 -32 45 -57 62 l-44 33 -490 0 -490 0 -44 -33z"/>
+<path d="M7705 5345 c-16 -7 -76 -18 -131 -24 -56 -6 -128 -17 -160 -26 -32 -8 -66 -15 -76 -15 -10 0 -44 -9 -75 -19 -32 -11 -76 -22 -97 -26 -22 -4 -49 -13 -60 -21 -11 -8 -30 -14 -41 -14 -11 0 -37 -9 -58 -20 -20 -11 -43 -20 -51 -20 -8 0 -36 -11 -63 -24 -26 -14 -91 -46 -143 -71 -52 -26 -108 -54 -125 -62 -47 -25 -208 -129 -235 -151 -8 -7 -51 -41 -95 -75 -44 -33 -136 -117 -205 -186 -158 -158 -236 -256 -389 -491 -31 -48 -169 -335 -196 -410 -48 -134 -62 -174 -74 -220 -72 -271 -117 -630 -108 -865 11 -267 48 -501 125 -775 21 -73 64 -187 93 -242 10 -20 19 -44 19 -52 0 -29 139 -279 228 -411 85 -125 174 -230 306 -360 121 -120 266 -245 284 -245 5 0 15 -6 21 -14 10 -12 48 -39 181 -125 48 -31 335 -169 410 -196 201 -72 211 -75 485 -135 22 -5 63 -10 90 -10 51 -1 138 -20 151 -33 4 -4 145 -7 312 -7 248 0 308 3 321 14 10 8 61 19 126 26 128 13 282 48 425 96 25 9 61 19 81 23 20 4 47 15 60 24 13 10 32 17 42 17 10 0 35 9 55 20 20 11 84 42 142 70 58 28 123 62 145 75 22 13 47 27 55 31 18 9 133 86 175 117 114 85 186 147 296 258 155 155 241 262 361 454 7 11 21 32 31 47 27 42 137 259 137 272 0 6 7 25 16 41 27 51 78 193 105 290 95 339 135 726 104 1020 -23 227 -63 463 -93 555 -6 19 -25 76 -41 125 -55 165 -67 195 -146 355 -96 193 -152 282 -294 462 -75 95 -320 340 -373 374 -20 13 -39 28 -43 34 -4 6 -23 22 -43 35 -21 13 -56 38 -80 55 -23 16 -46 30 -51 30 -4 0 -16 9 -26 20 -10 11 -24 20 -30 20 -7 0 -24 9 -38 20 -30 24 -254 140 -270 140 -5 0 -28 9 -51 19 -40 19 -102 43 -208 80 -54 19 -109 34 -188 52 -25 6 -70 17 -100 24 -30 8 -101 19 -158 25 -56 5 -116 17 -132 25 -40 20 -588 21 -635 0z m545 -1069 c69 -8 177 -32 255 -57 33 -10 67 -19 75 -19 8 -1 33 -9 55 -20 22 -11 45 -19 51 -20 12 0 157 -73 214 -108 164 -98 316 -236 431 -389 38 -50 69 -94 69 -98 0 -4 9 -19 19 -34 32 -44 101 -181 101 -199 0 -9 9 -30 20 -47 11 -16 20 -40 20 -52 0 -12 8 -46 19 -75 10 -29 28 -107 41 -173 20 -108 22 -143 18 -345 -5 -221 -7 -240 -49 -405 -18 -72 -38 -140 -48 -160 -30 -63 -61 -135 -61 -140 0 -9 -79 -144 -102 -175 -170 -228 -257 -312 -461 -442 -126 -80 -365 -177 -502 -202 -38 -8 -90 -19 -115 -26 -30 -8 -123 -13 -277 -13 -200 0 -246 3 -335 22 -136 29 -146 32 -288 83 -75 27 -237 107 -251 124 -6 8 -17 14 -24 14 -7 0 -39 20 -71 45 -31 25 -60 45 -63 45 -4 0 -49 42 -102 93 -108 105 -200 216 -255 312 -29 48 -114 221 -114 230 0 5 -9 32 -19 60 -87 225 -119 572 -77 835 10 63 22 131 28 150 5 19 16 58 23 85 34 124 95 262 173 391 127 209 361 423 589 539 81 41 213 95 231 95 7 0 34 8 60 19 63 25 209 54 307 60 96 7 339 5 415 -3z"/>
+<path d="M11827 5325 l-28 -36 0 -472 1 -472 32 -27 32 -28 996 0 c775 0 1001 -3 1020 -13 14 -7 33 -28 42 -47 16 -32 18 -76 18 -480 0 -423 1 -447 20 -477 36 -59 24 -58 515 -58 411 1 453 2 483 18 18 10 37 29 43 44 6 16 8 395 7 1022 l-3 997 -25 31 -25 32 -1550 0 -1550 1 -28 -35z"/>
+<path d="M16146 5324 c-33 -40 -30 27 -28 -587 l2 -388 32 -30 32 -29 993 0 c606 0 1001 -4 1017 -10 14 -5 33 -21 43 -37 16 -25 18 -66 23 -488 5 -422 7 -463 23 -488 10 -16 30 -33 45 -39 18 -7 178 -12 462 -15 l435 -4 45 23 c35 18 48 31 58 62 10 30 12 249 10 1015 l-3 976 -25 37 -25 38 -1555 -1 -1555 0 -29 -35z"/>
+<path d="M20460 5349 c0 -6 -11 -24 -25 -41 l-25 -30 0 -989 c0 -1103 -5 -1022 69 -1057 32 -16 80 -18 481 -17 l445 0 32 24 c18 13 35 31 38 38 3 8 5 465 5 1015 l1 1000 -28 33 -28 34 -482 0 c-347 1 -483 -2 -483 -10z"/>
+<path d="M14009 2129 c-55 -24 -69 -58 -69 -165 0 -250 -76 -451 -230 -604 -90 -90 -251 -200 -293 -200 -7 0 -28 -8 -47 -19 -19 -10 -57 -21 -83 -25 -27 -4 -67 -14 -89 -22 -30 -10 -91 -14 -229 -14 -169 0 -199 3 -286 25 -54 14 -107 29 -118 34 -11 5 -53 24 -92 42 -40 17 -73 35 -73 40 0 4 -10 11 -22 15 -50 16 -192 130 -303 243 -95 96 -129 117 -171 107 -37 -10 -71 -46 -239 -256 -82 -102 -203 -252 -270 -335 -153 -190 -155 -193 -155 -231 0 -27 14 -47 83 -117 108 -111 256 -230 361 -290 17 -10 45 -26 61 -37 67 -43 281 -140 355 -162 19 -6 40 -14 45 -18 6 -4 26 -11 45 -14 19 -4 60 -15 90 -25 90 -30 189 -50 294 -61 55 -6 110 -17 123 -25 33 -22 633 -22 666 0 12 8 65 19 117 25 131 15 338 65 416 101 23 10 47 19 53 19 7 0 29 9 49 19 20 11 66 34 102 51 68 32 78 38 145 79 131 82 332 271 400 377 21 33 46 68 56 79 47 54 150 271 184 385 7 25 18 59 23 75 6 17 20 66 31 110 49 196 66 347 70 607 2 134 2 138 -22 162 -14 14 -42 29 -63 35 -23 5 -214 10 -454 10 -396 0 -417 -1 -461 -20z"/>
+<path d="M18363 2139 c-80 -16 -103 -63 -103 -206 0 -195 -51 -352 -166 -508 -102 -140 -300 -266 -484 -310 -30 -7 -73 -18 -95 -24 -51 -14 -407 -14 -460 0 -22 6 -66 17 -97 24 -31 7 -67 20 -79 29 -13 9 -29 16 -36 16 -7 0 -54 24 -104 53 -49 28 -98 57 -107 62 -39 22 -123 95 -227 196 -66 64 -122 110 -139 115 -41 10 -82 -15 -136 -82 -25 -31 -64 -79 -87 -108 -64 -77 -120 -146 -161 -197 -20 -26 -45 -56 -54 -67 -25 -30 -157 -195 -165 -207 -5 -5 -25 -30 -45 -54 -21 -24 -42 -59 -49 -78 -10 -31 -8 -38 18 -76 56 -82 192 -204 343 -309 67 -46 274 -168 285 -168 4 0 21 -6 38 -14 123 -55 151 -66 161 -66 6 0 33 -8 61 -19 134 -50 301 -89 437 -102 56 -5 116 -16 132 -24 43 -22 606 -22 639 0 13 8 63 19 113 24 143 15 311 57 454 114 41 16 91 35 110 42 19 7 69 33 110 56 241 139 393 276 537 488 49 71 153 265 153 285 0 5 9 27 19 50 36 79 51 121 61 174 5 29 14 60 19 70 5 9 14 49 20 89 6 39 15 83 20 97 13 34 44 437 39 509 -5 68 -30 107 -79 124 -37 13 -836 15 -896 2z"/>
+<path d="M20493 2139 c-18 -5 -44 -24 -58 -43 l-25 -33 0 -995 0 -995 25 -23 c14 -13 25 -29 25 -37 0 -11 89 -13 485 -13 303 0 485 4 485 10 0 5 11 20 25 33 l26 23 -1 1002 c0 712 -3 1009 -11 1023 -6 12 -29 29 -52 39 -39 17 -75 19 -467 18 -234 0 -439 -4 -457 -9z"/>
+</g>
+<g transform="translate(0,536) scale(0.1,-0.1)" fill="var(--blue)" stroke="none">
+<path d="M22638 3213 c-28 -12 -41 -26 -57 -63 -20 -47 -21 -66 -21 -470 0 -404 1 -423 21 -470 35 -80 31 -80 541 -80 483 0 483 0 531 64 l27 35 0 450 c0 449 0 450 -22 484 -44 68 -38 67 -536 66 -374 -1 -453 -3 -484 -16z"/>
+</g>
+</symbol>
+</svg>
+<div class="progress" id="progress"></div>
+
+<header class="bar">
+  <a href="#hero" class="bar-logo" aria-label="Yojji — welcome book">
+    <svg viewBox="0 0 2368 536" class="mark" role="img"><use href="#yojji"></use></svg>
+  </a>
+  <span class="mono bar-now" id="barNow">[01] — Welcome</span>
+  <button class="bar-btn" id="menuBtn" aria-expanded="false"><span>Contents</span><span class="bx"></span></button>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-label="Contents">
+  <div class="menu-head">
+    <svg viewBox="0 0 2368 536" class="mark" role="img"><use href="#yojji"></use></svg>
+    <button class="menu-close" id="menuClose">Close</button>
+  </div>
+  <nav class="menu-list" id="menuList">
+    <a href="#hero"><span class="mono">—</span><span class="t">Welcome</span><span class="mono">Cover</span></a>
+    <a href="#contents"><span class="mono">—</span><span class="t">Contents</span><span class="mono">Index</span></a>
+    <a href="#who"><span class="mono">[01]</span><span class="t">Who we are</span><span class="mono">Company</span></a>
+    <a href="#values"><span class="mono">[02]</span><span class="t">What guides us</span><span class="mono">Values</span></a>
+    <a href="#people"><span class="mono">[03]</span><span class="t">Meet the people</span><span class="mono">Team</span></a>
+    <a href="#first-days"><span class="mono">[04]</span><span class="t">Your first days</span><span class="mono">Onboarding</span></a>
+    <a href="#how-we-work"><span class="mono">[05]</span><span class="t">How we work</span><span class="mono">Rhythm</span></a>
+    <a href="#recharge"><span class="mono">[06]</span><span class="t">Time to recharge</span><span class="mono">Benefits</span></a>
+    <a href="#life"><span class="mono">[07]</span><span class="t">Life at Yojji</span><span class="mono">Community</span></a>
+    <a href="#work"><span class="mono">[08]</span><span class="t">The work we’re proud of</span><span class="mono">Projects</span></a>
+    <a href="#support"><span class="mono">[09]</span><span class="t">Your support circle</span><span class="mono">People</span></a>
+    <a href="#help"><span class="mono">[10]</span><span class="t">Need a hand?</span><span class="mono">Contacts</span></a>
+  </nav>
+</div>
+
+<main>
+
+<!-- HERO ----------------------------------------------------------- -->
+<section class="hero" id="hero" data-title="Welcome">
+  <div class="wrap hero-wrap">
+
+    <div class="hero-top">
+      <svg viewBox="0 0 2368 536" class="mark mark--hero" role="img" aria-label="Yojji"><use href="#yojji"></use></svg>
+      <span class="hero-year">2026</span>
+    </div>
+
+    <div class="hero-mid">
+      <div class="hero-main">
+        <h1 class="hero-type">Welcome<br>to <svg viewBox="0 0 2368 536" class="mark mark--inline" aria-hidden="true" focusable="false"><use href="#yojji"></use></svg><span class="sr-only">Yojji</span></h1>
+        <p class="hero-desc">This Welcome Book is your quick guide to our company. It’s here to help you get to know who we are, how we work, and what makes life at Yojji comfortable, meaningful, and inspiring.</p>
+      </div>
+
+      <a class="ready" href="#contents" aria-label="Scroll to contents">
+        <span class="ready-t">Ready to<br>begin?</span>
+        <svg class="ready-arrow" viewBox="0 0 64 150" fill="none" aria-hidden="true">
+          <path d="M32 0 C32 62 32 62 32 128" stroke="currentColor" stroke-width="3"/>
+          <path d="M8 106 C22 112 30 122 32 136 C34 122 42 112 56 106" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hero-foot">
+      <span>2nd Floor, 13 John Prince’s<br>St, London W1G 0JR</span>
+      <span class="right"><a href="mailto:hello@yojji.io">hello@yojji.io</a><br><a href="tel:+442045773275">+44 20 4577 3275</a></span>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTENTS -------------------------------------------------------- -->
+<section id="contents" data-title="Contents">
+  <div class="wrap">
+    <div class="rail">
+      <span class="mono">Contents</span>
+      <span class="mono mid"><span>Welcome book</span><span>Edition 2026</span></span>
+      <span class="mono">10 sections</span>
+    </div>
+    <div class="split">
+      <h2>Everything you<br>need inside.</h2>
+      <p class="muted">Read it end to end on your first day, or jump to the part you need. Nothing here is a test — it’s a map.</p>
+    </div>
+    <div class="index">
+      <a href="#who"><span class="mono">[01]</span><span class="t">Who we are</span><span class="mono">Company</span></a>
+      <a href="#values"><span class="mono">[02]</span><span class="t">What guides us</span><span class="mono">Values</span></a>
+      <a href="#people"><span class="mono">[03]</span><span class="t">Meet the people behind Yojji</span><span class="mono">Team</span></a>
+      <a href="#first-days"><span class="mono">[04]</span><span class="t">Your first days</span><span class="mono">Onboarding</span></a>
+      <a href="#how-we-work"><span class="mono">[05]</span><span class="t">How we work</span><span class="mono">Rhythm</span></a>
+      <a href="#recharge"><span class="mono">[06]</span><span class="t">Time to recharge</span><span class="mono">Benefits</span></a>
+      <a href="#life"><span class="mono">[07]</span><span class="t">Life at Yojji</span><span class="mono">Community</span></a>
+      <a href="#work"><span class="mono">[08]</span><span class="t">The work we’re proud of</span><span class="mono">Projects</span></a>
+      <a href="#support"><span class="mono">[09]</span><span class="t">Your support circle</span><span class="mono">People</span></a>
+      <a href="#help"><span class="mono">[10]</span><span class="t">Need a hand?</span><span class="mono">Contacts</span></a>
+    </div>
+    <figure class="photo mt-l">
+      <div class="photo-frame">
+        <img width="1600" height="800" decoding="async" src="images/team-photo-wide.jpg"
+             alt="The Yojji team together at a year-end gathering" loading="lazy" />
+      </div>
+      <figcaption class="mono"><span>Fig. 01 — The Yojji team</span><span>Team photo</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<!-- 02 --------------------------------------------------------------- -->
+<section id="who" data-title="Who we are">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[01]</span>
+      <span class="mono mid"><span>Who we are</span><span>Company</span></span><span class="mono">Yojji</span></div>
+    <div class="split">
+      <h2>A team built<br>around people.</h2>
+      <div>
+        <p class="muted">Yojji is a software development company for ambitious businesses. We combine product thinking, design, and engineering to create digital solutions that are useful, reliable, and ready to grow.</p>
+        <p class="muted">We work across Fintech, Healthcare, EdTech, AI, and other complex industries. What unites every project is the same goal: turn a challenging idea into something clear, valuable, and well made.</p>
+        <div class="meta-rows mono mt-s">
+          <div><span>Industries</span><span>Fintech · Health · EdTech · AI</span></div>
+          <div><span>Disciplines</span><span>Product · Design · Engineering · QA</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="figs f-3 mt-l">
+      <figure class="photo">
+        <div class="photo-frame photo-frame--45">
+          <img width="1600" height="2000" decoding="async" src="images/about-01-process.png" alt="Yojji team at work — process" loading="lazy" />
+        </div>
+        <figcaption class="mono"><span>Process</span><span>[01]</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="photo-frame photo-frame--45">
+          <img width="1600" height="2000" decoding="async" src="images/about-02-studio.png" alt="Yojji team at work — studio" loading="lazy" />
+        </div>
+        <figcaption class="mono"><span>Studio</span><span>[02]</span></figcaption>
+      </figure>
+      <figure class="photo">
+        <div class="photo-frame photo-frame--45">
+          <img width="1600" height="2000" decoding="async" src="images/about-03-people.png" alt="Yojji team at work — people" loading="lazy" />
+        </div>
+        <figcaption class="mono"><span>People</span><span>[03]</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 03 --------------------------------------------------------------- -->
+<section id="values" data-title="What guides us">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[02]</span>
+      <span class="mono mid"><span>What guides us</span><span>Values</span></span><span class="mono">Four principles</span></div>
+    <div class="split">
+      <h2>What<br>guides us</h2>
+      <p class="muted">Four things we come back to — in every project, every review, and every conversation with a client or a teammate.</p>
+    </div>
+    <div class="rows mt">
+      <div class="row"><span class="num">[01]</span><h3>Ownership</h3><p>We take responsibility for the work we do and the promises we make.</p></div>
+      <div class="row"><span class="num">[02]</span><h3>Curiosity</h3><p>We ask thoughtful questions, keep learning, and look for better ways forward.</p></div>
+      <div class="row"><span class="num">[03]</span><h3>Collaboration</h3><p>The best work happens when we share context, help each other, and communicate openly.</p></div>
+      <div class="row"><span class="num">[04]</span><h3>Care</h3><p>For the product, for the client, and for the people on our team.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 --------------------------------------------------------------- -->
+<section id="people" class="sec-dark" data-title="Meet the people">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[03]</span>
+      <span class="mono mid"><span>Meet the people</span><span>Team</span></span><span class="mono">Leadership</span></div>
+    <div class="split">
+      <h2>Leadership close<br>to the work.</h2>
+      <div>
+        <p class="muted">Our leaders help set the direction, but great work is never created by one person. At Yojji, product managers, designers, developers, QA engineers, and operations specialists work together from the first idea to launch.</p>
+        <p class="muted">Meet the people who help us keep the bar high, stay focused on what matters, and create an environment where every teammate can grow.</p>
+      </div>
+    </div>
+    <div class="leaders mt-l">
+      <figure class="leader">
+        <div class="leader-frame">
+          <span class="tag">[01]</span>
+          <img width="1200" height="1600" decoding="async" src="images/leader-artem-makarovsky.png" alt="Artem Makarovsky — CEO" loading="lazy" />
+        </div>
+        <figcaption class="leader-cap"><b>Artem Makarovsky</b><span class="mono">CEO</span></figcaption>
+      </figure>
+      <figure class="leader">
+        <div class="leader-frame">
+          <span class="tag">[02]</span>
+          <img width="1200" height="1600" decoding="async" src="images/leader-timofey-lebedev.png" alt="Timofey Lebedev — co-Founder, COO" loading="lazy" />
+        </div>
+        <figcaption class="leader-cap"><b>Timofey Lebedev</b><span class="mono">co-Founder, COO</span></figcaption>
+      </figure>
+      <figure class="leader">
+        <div class="leader-frame">
+          <span class="tag">[03]</span>
+          <img width="1200" height="1600" decoding="async" src="images/leader-yevhen-piotrovskyi.png" alt="Yevhen Piotrovskyi — co-Founder, CTO" loading="lazy" />
+        </div>
+        <figcaption class="leader-cap"><b>Yevhen Piotrovskyi</b><span class="mono">co-Founder, CTO</span></figcaption>
+      </figure>
+      <figure class="leader">
+        <div class="leader-frame">
+          <span class="tag">[04]</span>
+          <img width="1200" height="1600" decoding="async" src="images/leader-ildar-kulmuhametov.png" alt="Ildar Kulmuhametov — co-Founder, CEO" loading="lazy" />
+        </div>
+        <figcaption class="leader-cap"><b>Ildar Kulmuhametov</b><span class="mono">co-Founder, CEO</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 --------------------------------------------------------------- -->
+<section id="first-days" data-title="Your first days">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[04]</span>
+      <span class="mono mid"><span>Your first days</span><span>Onboarding</span></span><span class="mono">Day 1 → Month 1</span></div>
+    <div class="split">
+      <h2>Small steps.<br>Real momentum.</h2>
+      <p class="muted">You don’t need to know everything on day one. Your first week is about getting comfortable, meeting your people, and understanding the context behind your role.</p>
+    </div>
+    <div class="stages mt">
+      <div class="stage">
+        <div class="cap mono"><span>Stage</span><span>[01]</span></div>
+        <h3>Day one</h3>
+        <ol>
+          <li><span>Meet your manager and onboarding buddy</span></li>
+          <li><span>Get access to your core tools and accounts</span></li>
+          <li><span>Learn how your team communicates</span></li>
+          <li><span>Set up your workspace and calendar</span></li>
+        </ol>
+      </div>
+      <div class="stage">
+        <div class="cap mono"><span>Stage</span><span>[02]</span></div>
+        <h3>First week</h3>
+        <ol>
+          <li><span>Join team ceremonies and introductions</span></li>
+          <li><span>Review your project or role context</span></li>
+          <li><span>Agree on your first priorities</span></li>
+          <li><span>Ask questions early and often</span></li>
+        </ol>
+      </div>
+      <div class="stage">
+        <div class="cap mono"><span>Stage</span><span>[03]</span></div>
+        <h3>First month</h3>
+        <ol>
+          <li><span>Build confidence in your day-to-day work</span></li>
+          <li><span>Get regular feedback from your manager</span></li>
+          <li><span>Share what is helping and what could be clearer</span></li>
+          <li><span>Start contributing your own ideas</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="note">
+      <span class="k">Friendly note</span>
+      <p>There are no <b>“silly questions”</b> here. If something is unclear, ask — someone has probably wondered about it before.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 --------------------------------------------------------------- -->
+<section id="how-we-work" data-title="How we work">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[05]</span>
+      <span class="mono mid"><span>How we work</span><span>Rhythm</span></span><span class="mono">Working hours</span></div>
+    <div class="split">
+      <h2>Clear communication.<br>Healthy rhythm.</h2>
+      <p class="muted">We value focus, transparency, and a healthy rhythm. Teams may work differently depending on their projects, but the principles stay the same: keep people informed, respect each other’s time, and solve problems together.</p>
+    </div>
+    <div class="hours mt-l">
+      <div class="r"><span class="mono">Day begins</span><span class="t">09:00 — 11:00</span><span class="mono">[A]</span></div>
+      <div class="r"><span class="mono">Day finishes</span><span class="t">18:00 — 20:00</span><span class="mono">[B]</span></div>
+    </div>
+    <p class="small mt-s">Our standard working day begins between 9:00 and 11:00 am and finishes between 6:00 and 8:00 pm, depending on your start time. We trust you to manage your time responsibly and to stay aligned with your team.</p>
+  </div>
+</section>
+
+<!-- 07 --------------------------------------------------------------- -->
+<section id="recharge" data-title="Time to recharge">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[06]</span>
+      <span class="mono mid"><span>Time to recharge</span><span>Benefits</span></span><span class="mono">Vacation & sick days</span></div>
+    <div class="split">
+      <h2>Good work needs<br>room to breathe.</h2>
+      <p>Rest is part of doing sustainable, high-quality work. Every employee receives paid vacation and sick days — and we encourage you to actually use them.</p>
+    </div>
+    <div class="nums mt-l">
+      <div><div class="n">15</div><div class="l">working days of paid vacation</div></div>
+      <div><div class="n">05</div><div class="l">paid sick days per year</div></div>
+    </div>
+    <div class="howto mt">
+      <span class="mono">How to request</span>
+      <p style="margin:0" class="muted">Use <b style="color:var(--ink)">Yojji Vacations</b> with your corporate email. Please plan ahead whenever possible and make sure your team knows about upcoming absences.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 --------------------------------------------------------------- -->
+<section id="life" data-title="Life at Yojji">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[07]</span>
+      <span class="mono mid"><span>Life at Yojji</span><span>Community</span></span><span class="mono">Clubs & activities</span></div>
+    <div class="split">
+      <h2>Work matters.<br>So does community.</h2>
+      <p class="muted">We make room to learn, share ideas, and enjoy time together beyond deadlines.</p>
+    </div>
+    <div class="rows mt">
+      <div class="row"><span class="num">[01]</span><h3>English Speaking Club</h3><p>A relaxed space to practise English, share stories, and build confidence together.</p></div>
+      <div class="row"><span class="num">[02]</span><h3>Learning and trainings</h3><p>Internal sessions, useful resources, and peer-to-peer knowledge sharing for professional growth.</p></div>
+      <div class="row"><span class="num">[03]</span><h3>Reading Club</h3><p>Each month, we choose a book, exchange perspectives, and discover new ideas together.</p></div>
+      <div class="row"><span class="num">[04]</span><h3>Team moments</h3><p>Online and offline activities that help us stay connected, celebrate wins, and simply enjoy being a team.</p></div>
+    </div>
+    <div class="figs f-4 mt-l">
+      <figure class="shot">
+        <div class="shot-frame">
+          <span class="tag">[01]</span>
+          <img width="1200" height="1200" decoding="async" src="images/life-01-english-club.png" alt="English Speaking Club meetup" loading="lazy" />
+        </div>
+      </figure>
+      <figure class="shot">
+        <div class="shot-frame">
+          <span class="tag">[02]</span>
+          <img width="1200" height="1200" decoding="async" src="images/life-02-learning.png" alt="Internal learning session" loading="lazy" />
+        </div>
+      </figure>
+      <figure class="shot">
+        <div class="shot-frame">
+          <span class="tag">[03]</span>
+          <img width="1200" height="1200" decoding="async" src="images/life-03-reading-club.png" alt="Reading Club gathering" loading="lazy" />
+        </div>
+      </figure>
+      <figure class="shot">
+        <div class="shot-frame">
+          <span class="tag">[04]</span>
+          <img width="1200" height="1200" decoding="async" src="images/life-04-team-moment.png" alt="Team moment" loading="lazy" />
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 09 --------------------------------------------------------------- -->
+<section id="work" class="sec-dark" data-title="The work we’re proud of">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[08]</span>
+      <span class="mono mid"><span>The work we’re proud of</span><span>Projects</span></span><span class="mono">Selected</span></div>
+    <div class="wordmark">WORK<span class="yr">[2018 — 2026]</span></div>
+    <div class="split mt-l">
+      <h3 style="max-width:22ch">Different industries.<br>One clear standard.</h3>
+      <div>
+        <p>Our teams build products across Fintech, Healthcare, EdTech, AI, and other fields where thoughtful technology can make a real difference.</p>
+        <p>We work on everything from early product ideas to full-scale platforms — always with attention to the people who will use them.</p>
+      </div>
+    </div>
+    <div class="carousel mt-l">
+      <div class="car-head">
+        <span class="mono">Selected projects — 04</span>
+        <a class="car-cta" href="https://yojji.io/case-studies" target="_blank" rel="noopener noreferrer">View all cases</a>
+      </div>
+      <div class="car-stage">
+        <div class="car-track" id="carTrack" tabindex="0">
+          <article class="case">
+            <div class="case-media">
+              <span class="tag">[01]</span>
+              <img width="1600" height="1000" decoding="async" src="images/case-study-hall.png" alt="Study Hall — AI-powered learning platform" loading="lazy" />
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">Study Hall</h3>
+              <p class="case-sub">An AI-powered platform connecting students, educators, and parents for personalized learning.</p>
+              <div class="case-foot">
+                <span class="mono case-by">EdTech<br>Feb 2024 — now</span>
+              </div>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-media">
+              <span class="tag">[02]</span>
+              <img width="1600" height="1000" decoding="async" src="images/case-payosu.png" alt="PayOsu — payment and business management platform" loading="lazy" />
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">PayOsu</h3>
+              <p class="case-sub">Osu is a modern payment and business management platform for small businesses and the self-employed.</p>
+              <div class="case-foot">
+                <span class="mono case-by">Fintech<br>Mar 2020 — Jun 2022</span>
+              </div>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-media">
+              <span class="tag">[03]</span>
+              <img width="1600" height="1000" decoding="async" src="images/case-superme.png" alt="SuperMe — children’s health platform" loading="lazy" />
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">SuperMe</h3>
+              <p class="case-sub">SuperMe partnered with Yojji to build a digital ecosystem for children’s health and healthy habits.</p>
+              <div class="case-foot">
+                <span class="mono case-by">Healthcare<br>Sep 2024 — Feb 2025</span>
+              </div>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-media">
+              <span class="tag">[04]</span>
+              <img width="1600" height="1000" decoding="async" src="images/case-jellibeans.png" alt="Jellibeans — fashion data insights platform" loading="lazy" />
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">Jellibeans</h3>
+              <p class="case-sub">Jellibeans partnered with Yojji to turn fashion data into actionable business insights.</p>
+              <div class="case-foot">
+                <span class="mono case-by">AI<br>Mar 2022 — Oct 2024</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <button class="car-btn car-prev" id="carPrev" aria-label="Previous">‹</button>
+        <button class="car-btn car-next" id="carNext" aria-label="Next">›</button>
+      </div>
+      <div class="car-bar"><span id="carBar"></span></div>
+      <a class="car-cta car-cta--mobile" href="https://yojji.io/case-studies" target="_blank" rel="noopener noreferrer">View all cases</a>
+    </div>
+  </div>
+</section>
+
+<!-- 10 --------------------------------------------------------------- -->
+<section id="support" data-title="Your support circle">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[09]</span>
+      <span class="mono mid"><span>Your support circle</span><span>People</span></span><span class="mono">Who to ask</span></div>
+    <div class="split">
+      <h2>You’re never<br>onboarding alone.</h2>
+      <p class="muted">Four groups of people are there for you from day one — each with a slightly different kind of help.</p>
+    </div>
+    <div class="rows mt">
+      <div class="row"><span class="num">[01]</span><h3>Your manager</h3><p>Helps you set priorities, understand expectations, and grow in your role.</p></div>
+      <div class="row"><span class="num">[02]</span><h3>Your onboarding buddy</h3><p>Your practical go-to person for everyday questions and team context.</p></div>
+      <div class="row"><span class="num">[03]</span><h3>HR team</h3><p>Supports you with policies, documents, benefits, and anything related to your employee experience.</p></div>
+      <div class="row"><span class="num">[04]</span><h3>Your teammates</h3><p>The people you can learn from, collaborate with, and rely on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · closing --------------------------------------------------- -->
+<footer id="help" data-title="Need a hand?">
+  <div class="wrap">
+    <div class="rail"><span class="mono">[10]</span>
+      <span class="mono mid"><span>Need a hand?</span><span>Contacts</span></span><span class="mono">Always open</span></div>
+    <p class="mono" style="margin-bottom:20px">Ask early. Ask openly. We’re here.</p>
+    <h2>Welcome to Yojji.<br>Let’s build <span class="blue-txt">meaningful</span> things.</h2>
+    <p class="muted mt">If you’re unsure where to start, need access to something, or simply want to talk through a question, reach out to your manager, onboarding buddy, or HR.</p>
+    <div class="contacts">
+      <div class="c"><span class="mono">General</span><a class="v" href="mailto:hello@yojji.io">hello@yojji.io</a></div>
+      <div class="c"><span class="mono">HR contact</span><a class="v" href="https://t.me/Solomiya_teacher" target="_blank" rel="noopener noreferrer">@Solomiya_teacher</a></div>
+    </div>
+    <div class="f-bot">
+      <svg viewBox="0 0 2368 536" class="mark mark--foot" role="img" aria-label="Yojji"><use href="#yojji"></use></svg>
+      <span class="mono">© Yojji — 2026</span>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress'),now=document.getElementById('barNow'),
+      menu=document.getElementById('menu'),btn=document.getElementById('menuBtn'),
+      close=document.getElementById('menuClose');
+  function setMenu(v){document.body.classList.toggle('menu-open',v);btn.setAttribute('aria-expanded',v);}
+  btn.addEventListener('click',function(){setMenu(!document.body.classList.contains('menu-open'));});
+  close.addEventListener('click',function(){setMenu(false);});
+  document.querySelectorAll('#menuList a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+
+  var sections=[].slice.call(document.querySelectorAll('section[data-title]'));
+  var hero=document.getElementById('hero');
+  function label(sec,i){
+    var t=sec.getAttribute('data-title');
+    var n=i-1;                       // hero and contents are unnumbered
+    return n>0 ? '['+String(n).padStart(2,'0')+'] — '+t : t;
+  }
+  function onScroll(){
+    var pos=window.scrollY+window.innerHeight*0.3,cur=sections[0],idx=0;
+    sections.forEach(function(s,k){if(s.offsetTop<=pos){cur=s;idx=k;}});
+    now.textContent=label(cur,idx);
+    document.body.classList.toggle('past-hero', window.scrollY > hero.offsetHeight-90);
+    var h=document.body.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);onScroll();
+
+  var track=document.getElementById('carTrack');
+  if(track){
+    var prev=document.getElementById('carPrev'),next=document.getElementById('carNext'),
+        cbar=document.getElementById('carBar');
+    function step(){var c=track.firstElementChild;var g=parseFloat(getComputedStyle(track).columnGap)||18;return c?c.getBoundingClientRect().width+g:300;}
+    function sync(){
+      var max=track.scrollWidth-track.clientWidth;
+      var ratio=track.clientWidth/track.scrollWidth;
+      cbar.parentNode.style.display=(max>2?'':'none');   /* no scrollbar when everything fits */
+      cbar.style.width=(ratio*100)+'%';
+      cbar.style.left=(max>0?(track.scrollLeft/max)*(100-ratio*100):0)+'%';
+      prev.disabled=track.scrollLeft<4;
+      next.disabled=track.scrollLeft>max-4;
+    }
+    prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+    next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+    track.addEventListener('scroll',sync,{passive:true});
+    window.addEventListener('resize',sync);
+    sync();
+  }
+
+
+  var t=document.querySelectorAll('section .wrap > *, footer .wrap > *');
+  t.forEach(function(e){e.classList.add('rv');});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -6% 0px',threshold:0.04});
+    t.forEach(function(e){io.observe(e);});
+  } else {t.forEach(function(e){e.classList.add('in');});}
+})();
+</script>
+</body>
+</html>
