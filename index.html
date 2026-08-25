@@ -40,7 +40,7 @@
 <!-- Meta Pixel: вставити тут -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
 /* =====================================================================
    TOKENS
@@ -63,7 +63,12 @@
 
   --sans:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  /* Рукописний підпис. Playlist Script — платний, тож поки працює Caveat із Google Fonts.
+     Щоб підключити справжній: покладіть файли поруч із index.html і розкоментуйте @font-face нижче. */
+  --script:'Playlist Script','Caveat',cursive;
 }
+/* @font-face{font-family:'Playlist Script';src:url('fonts/PlaylistScript.woff2') format('woff2');
+   font-weight:400;font-style:normal;font-display:swap;} */
 *,*::before,*::after{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
@@ -90,7 +95,7 @@ p{margin:0 0 16px;max-width:62ch;}
 /* ---------- logo ---------- */
 .mark{display:block;height:22px;width:auto;color:var(--ink);}
 .mark--lg{height:clamp(46px,9.4vw,132px);}
-.mark--foot{height:clamp(34px,5vw,64px);color:var(--ink);}
+.mark--foot{height:16px;color:var(--ink);}
 .mark--onblue{--blue:#fff;color:#fff;}
 
 /* ---------- top bar ---------- */
@@ -274,6 +279,14 @@ section{padding:0 var(--pad-x) clamp(64px,8vw,124px);border-bottom:1px solid var
 .leader-cap{display:block;margin-top:11px;padding-top:10px;border-top:1px solid var(--line);}
 .leader-cap b{display:block;font-size:17px;font-weight:600;letter-spacing:-.02em;}
 .leader-cap .mono{display:block;margin-top:5px;}
+.leader-link{display:block;text-decoration:none;color:inherit;}
+.leader-link:hover .leader-cap b{color:#5B8CFF;}
+.leader .li{position:absolute;top:8px;right:10px;z-index:3;width:22px;height:22px;
+  display:grid;place-items:center;border-radius:3px;background:rgba(250,250,252,.14);
+  color:#FAFAFC;font-family:var(--sans);font-size:11px;font-weight:600;line-height:1;
+  letter-spacing:-.02em;opacity:.75;transition:background .2s ease,opacity .2s ease;}
+.leader-link:hover .li{background:#0A66C2;opacity:1;}
+.leader-link:focus-visible{outline:2px solid #5B8CFF;outline-offset:4px;}
 @media (max-width:900px){.leaders{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:520px){.leaders{grid-template-columns:1fr;}}
 
@@ -313,7 +326,11 @@ section{padding:0 var(--pad-x) clamp(64px,8vw,124px);border-bottom:1px solid var
 .f-4{grid-template-columns:repeat(4,1fr);}
 figure{margin:0;}
 figcaption{display:flex;justify-content:space-between;gap:10px;margin-top:9px;padding-top:7px;
-  border-top:1px solid var(--line);}
+  border-top:1px solid var(--line);align-items:baseline;}
+.script{font-family:var(--script);color:var(--blue);font-weight:600;
+  font-size:clamp(21px,2.1vw,30px);line-height:1.05;letter-spacing:0;}
+.cap-hand{flex-direction:column;align-items:flex-start;gap:3px;}
+.cap-hand .mono{color:var(--ink-45);}
 
 /* ---------- numbers ---------- */
 .nums{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink);}
@@ -365,6 +382,12 @@ figcaption{display:flex;justify-content:space-between;gap:10px;margin-top:9px;pa
 .case-foot{margin-top:auto;padding-top:22px;display:flex;justify-content:space-between;
   align-items:flex-end;gap:12px;border-top:1px solid var(--line-2);}
 .case-by{line-height:1.5;}
+.case-link{display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit;}
+.case-link .case-title::after{content:" ↗";font-size:.8em;color:#5B8CFF;opacity:0;
+  transition:opacity .2s ease;}
+.case-link:hover .case-title{color:#5B8CFF;}
+.case-link:hover .case-title::after{opacity:1;}
+.case-link:focus-visible{outline:2px solid #5B8CFF;outline-offset:-2px;}
 .car-cta{display:inline-flex;align-items:center;gap:9px;text-decoration:none;
   background:#2F3036;color:#fff;padding:11px 24px;border-radius:999px;
   font-size:14px;font-weight:600;letter-spacing:-.01em;
@@ -420,7 +443,7 @@ footer h2{max-width:none;}
 .contacts .v{font-size:clamp(20px,2.4vw,34px);letter-spacing:-.03em;text-decoration:none;}
 .contacts a.v{color:var(--blue);}
 .contacts a.v:hover{border-bottom:2px solid var(--blue);}
-.f-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:flex-end;
+.f-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center;
   margin-top:clamp(40px,5vw,72px);padding-top:18px;border-top:1px solid var(--line);}
 
 /* ---------- reveal ---------- */
@@ -566,7 +589,7 @@ footer h2{max-width:none;}
         <img width="1600" height="800" decoding="async" src="images/team-photo-wide.jpg"
              alt="The Yojji team together at a year-end gathering" loading="lazy" />
       </div>
-      <figcaption class="mono"><span>Fig. 01 — The Yojji team</span><span>Team photo</span></figcaption>
+      <figcaption class="cap-hand"><span class="script">Yojji team</span><span class="mono">22 Dec 2021 · 12:45</span></figcaption>
     </figure>
   </div>
 </section>
@@ -593,19 +616,19 @@ footer h2{max-width:none;}
         <div class="photo-frame photo-frame--45">
           <img width="1600" height="2000" decoding="async" src="images/about-01-process.png" alt="Yojji team at work — process" loading="lazy" />
         </div>
-        <figcaption class="mono"><span>Process</span><span>[01]</span></figcaption>
+        <figcaption class="cap-hand"><span class="script">Where decisions happen</span><span class="mono">12 May 2020 · 10:30</span></figcaption>
       </figure>
       <figure class="photo">
         <div class="photo-frame photo-frame--45">
           <img width="1600" height="2000" decoding="async" src="images/about-02-studio.png" alt="Yojji team at work — studio" loading="lazy" />
         </div>
-        <figcaption class="mono"><span>Studio</span><span>[02]</span></figcaption>
+        <figcaption class="cap-hand"><span class="script">Meeting design day</span><span class="mono">12 May 2020 · 14:32</span></figcaption>
       </figure>
       <figure class="photo">
         <div class="photo-frame photo-frame--45">
           <img width="1600" height="2000" decoding="async" src="images/about-03-people.png" alt="Yojji team at work — people" loading="lazy" />
         </div>
-        <figcaption class="mono"><span>People</span><span>[03]</span></figcaption>
+        <figcaption class="cap-hand"><span class="script">Happy birthday Yojji</span><span class="mono">12 May 2021 · 18:30</span></figcaption>
       </figure>
     </div>
   </div>
@@ -643,32 +666,48 @@ footer h2{max-width:none;}
     </div>
     <div class="leaders mt-l">
       <figure class="leader">
-        <div class="leader-frame">
-          <span class="tag">[01]</span>
-          <img width="1200" height="1600" decoding="async" src="images/leader-artem-makarovsky.png" alt="Artem Makarovsky — CEO" loading="lazy" />
-        </div>
-        <figcaption class="leader-cap"><b>Artem Makarovsky</b><span class="mono">CEO</span></figcaption>
+        <a class="leader-link" href="https://www.linkedin.com/in/%D0%B0rtem-makarovsky-5738662b7/" target="_blank" rel="noopener noreferrer"
+           aria-label="Artem Makarovsky on LinkedIn">
+          <div class="leader-frame">
+            <span class="li" aria-hidden="true">in</span>
+            <span class="tag">[01]</span>
+            <img width="1200" height="1600" decoding="async" src="images/leader-artem-makarovsky.png" alt="Artem Makarovsky — CEO" loading="lazy" />
+          </div>
+          <figcaption class="leader-cap"><b>Artem Makarovsky</b><span class="mono">CEO</span></figcaption>
+        </a>
       </figure>
       <figure class="leader">
-        <div class="leader-frame">
-          <span class="tag">[02]</span>
-          <img width="1200" height="1600" decoding="async" src="images/leader-timofey-lebedev.png" alt="Timofey Lebedev — co-Founder, COO" loading="lazy" />
-        </div>
-        <figcaption class="leader-cap"><b>Timofey Lebedev</b><span class="mono">co-Founder, COO</span></figcaption>
+        <a class="leader-link" href="https://www.linkedin.com/in/timofey-lebedev-851a8b119/" target="_blank" rel="noopener noreferrer"
+           aria-label="Timofey Lebedev on LinkedIn">
+          <div class="leader-frame">
+            <span class="li" aria-hidden="true">in</span>
+            <span class="tag">[02]</span>
+            <img width="1200" height="1600" decoding="async" src="images/leader-timofey-lebedev.png" alt="Timofey Lebedev — co-Founder, COO" loading="lazy" />
+          </div>
+          <figcaption class="leader-cap"><b>Timofey Lebedev</b><span class="mono">co-Founder, COO</span></figcaption>
+        </a>
       </figure>
       <figure class="leader">
-        <div class="leader-frame">
-          <span class="tag">[03]</span>
-          <img width="1200" height="1600" decoding="async" src="images/leader-yevhen-piotrovskyi.png" alt="Yevhen Piotrovskyi — co-Founder, CTO" loading="lazy" />
-        </div>
-        <figcaption class="leader-cap"><b>Yevhen Piotrovskyi</b><span class="mono">co-Founder, CTO</span></figcaption>
+        <a class="leader-link" href="https://www.linkedin.com/in/yevhen-piotrovskyi/" target="_blank" rel="noopener noreferrer"
+           aria-label="Yevhen Piotrovskyi on LinkedIn">
+          <div class="leader-frame">
+            <span class="li" aria-hidden="true">in</span>
+            <span class="tag">[03]</span>
+            <img width="1200" height="1600" decoding="async" src="images/leader-yevhen-piotrovskyi.png" alt="Yevhen Piotrovskyi — co-Founder, CTO" loading="lazy" />
+          </div>
+          <figcaption class="leader-cap"><b>Yevhen Piotrovskyi</b><span class="mono">co-Founder, CTO</span></figcaption>
+        </a>
       </figure>
       <figure class="leader">
-        <div class="leader-frame">
-          <span class="tag">[04]</span>
-          <img width="1200" height="1600" decoding="async" src="images/leader-ildar-kulmuhametov.png" alt="Ildar Kulmuhametov — co-Founder, CEO" loading="lazy" />
-        </div>
-        <figcaption class="leader-cap"><b>Ildar Kulmuhametov</b><span class="mono">co-Founder, CEO</span></figcaption>
+        <a class="leader-link" href="https://www.linkedin.com/in/ildar-kulmuhametov/" target="_blank" rel="noopener noreferrer"
+           aria-label="Ildar Kulmuhametov on LinkedIn">
+          <div class="leader-frame">
+            <span class="li" aria-hidden="true">in</span>
+            <span class="tag">[04]</span>
+            <img width="1200" height="1600" decoding="async" src="images/leader-ildar-kulmuhametov.png" alt="Ildar Kulmuhametov — co-Founder, CEO" loading="lazy" />
+          </div>
+          <figcaption class="leader-cap"><b>Ildar Kulmuhametov</b><span class="mono">co-Founder, CEO</span></figcaption>
+        </a>
       </figure>
     </div>
   </div>
@@ -808,7 +847,7 @@ footer h2{max-width:none;}
   <div class="wrap">
     <div class="rail"><span class="mono">[08]</span>
       <span class="mono mid"><span>The work we’re proud of</span><span>Projects</span></span><span class="mono">Selected</span></div>
-    <div class="wordmark">WORK<span class="yr">[2018 — 2026]</span></div>
+    <div class="wordmark">WORK<span class="yr">[2016 — 2026]</span></div>
     <div class="split mt-l">
       <h3 style="max-width:22ch">Different industries.<br>One clear standard.</h3>
       <div>
@@ -824,56 +863,68 @@ footer h2{max-width:none;}
       <div class="car-stage">
         <div class="car-track" id="carTrack" tabindex="0">
           <article class="case">
-            <div class="case-media">
-              <span class="tag">[01]</span>
-              <img width="1600" height="1000" decoding="async" src="images/case-study-hall.png" alt="Study Hall — AI-powered learning platform" loading="lazy" />
-            </div>
-            <div class="case-body">
-              <h3 class="case-title">Study Hall</h3>
-              <p class="case-sub">An AI-powered platform connecting students, educators, and parents for personalized learning.</p>
-              <div class="case-foot">
-                <span class="mono case-by">EdTech<br>Feb 2024 — now</span>
+            <a class="case-link" href="https://yojji.io/case-studies/studyhall"
+               target="_blank" rel="noopener noreferrer" aria-label="Study Hall — read the case study">
+              <div class="case-media">
+                <span class="tag">[01]</span>
+                <img width="1600" height="1000" decoding="async" src="images/case-study-hall.png" alt="Study Hall — AI-powered learning platform" loading="lazy" />
               </div>
-            </div>
+              <div class="case-body">
+                <h3 class="case-title">Study Hall</h3>
+                <p class="case-sub">An AI-powered platform connecting students, educators, and parents for personalized learning.</p>
+                <div class="case-foot">
+                  <span class="mono case-by">EdTech<br>Feb 2024 — now</span>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="case">
-            <div class="case-media">
-              <span class="tag">[02]</span>
-              <img width="1600" height="1000" decoding="async" src="images/case-payosu.png" alt="PayOsu — payment and business management platform" loading="lazy" />
-            </div>
-            <div class="case-body">
-              <h3 class="case-title">PayOsu</h3>
-              <p class="case-sub">Osu is a modern payment and business management platform for small businesses and the self-employed.</p>
-              <div class="case-foot">
-                <span class="mono case-by">Fintech<br>Mar 2020 — Jun 2022</span>
+            <a class="case-link" href="https://yojji.io/case-studies/osu"
+               target="_blank" rel="noopener noreferrer" aria-label="PayOsu — read the case study">
+              <div class="case-media">
+                <span class="tag">[02]</span>
+                <img width="1600" height="1000" decoding="async" src="images/case-payosu.png" alt="PayOsu — payment and business management platform" loading="lazy" />
               </div>
-            </div>
+              <div class="case-body">
+                <h3 class="case-title">PayOsu</h3>
+                <p class="case-sub">Osu is a modern payment and business management platform for small businesses and the self-employed.</p>
+                <div class="case-foot">
+                  <span class="mono case-by">Fintech<br>Mar 2020 — Jun 2022</span>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="case">
-            <div class="case-media">
-              <span class="tag">[03]</span>
-              <img width="1600" height="1000" decoding="async" src="images/case-superme.png" alt="SuperMe — children’s health platform" loading="lazy" />
-            </div>
-            <div class="case-body">
-              <h3 class="case-title">SuperMe</h3>
-              <p class="case-sub">SuperMe partnered with Yojji to build a digital ecosystem for children’s health and healthy habits.</p>
-              <div class="case-foot">
-                <span class="mono case-by">Healthcare<br>Sep 2024 — Feb 2025</span>
+            <a class="case-link" href="https://yojji.io/case-studies/superme"
+               target="_blank" rel="noopener noreferrer" aria-label="SuperMe — read the case study">
+              <div class="case-media">
+                <span class="tag">[03]</span>
+                <img width="1600" height="1000" decoding="async" src="images/case-superme.png" alt="SuperMe — children’s health platform" loading="lazy" />
               </div>
-            </div>
+              <div class="case-body">
+                <h3 class="case-title">SuperMe</h3>
+                <p class="case-sub">SuperMe partnered with Yojji to build a digital ecosystem for children’s health and healthy habits.</p>
+                <div class="case-foot">
+                  <span class="mono case-by">Healthcare<br>Sep 2024 — Feb 2025</span>
+                </div>
+              </div>
+            </a>
           </article>
           <article class="case">
-            <div class="case-media">
-              <span class="tag">[04]</span>
-              <img width="1600" height="1000" decoding="async" src="images/case-jellibeans.png" alt="Jellibeans — fashion data insights platform" loading="lazy" />
-            </div>
-            <div class="case-body">
-              <h3 class="case-title">Jellibeans</h3>
-              <p class="case-sub">Jellibeans partnered with Yojji to turn fashion data into actionable business insights.</p>
-              <div class="case-foot">
-                <span class="mono case-by">AI<br>Mar 2022 — Oct 2024</span>
+            <a class="case-link" href="https://yojji.io/case-studies/jellibeans"
+               target="_blank" rel="noopener noreferrer" aria-label="Jellibeans — read the case study">
+              <div class="case-media">
+                <span class="tag">[04]</span>
+                <img width="1600" height="1000" decoding="async" src="images/case-jellibeans.png" alt="Jellibeans — fashion data insights platform" loading="lazy" />
               </div>
-            </div>
+              <div class="case-body">
+                <h3 class="case-title">Jellibeans</h3>
+                <p class="case-sub">Jellibeans partnered with Yojji to turn fashion data into actionable business insights.</p>
+                <div class="case-foot">
+                  <span class="mono case-by">AI<br>Mar 2022 — Oct 2024</span>
+                </div>
+              </div>
+            </a>
           </article>
         </div>
         <button class="car-btn car-prev" id="carPrev" aria-label="Previous">‹</button>
